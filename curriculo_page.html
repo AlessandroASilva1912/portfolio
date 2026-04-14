@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Currículo - Alessandro Alves da Silva</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Courier New', monospace;
+            background: linear-gradient(135deg, #0f172a 0%, #000000 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: #0f172a;
+        }
+
+        body.light-mode header {
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .logo {
+            color: #3b82f6;
+        }
+
+        body.light-mode nav a {
+            color: #475569;
+        }
+
+        body.light-mode nav a:hover,
+        body.light-mode nav a.active {
+            color: #3b82f6;
+        }
+
+        body.light-mode .icon-btn {
+            color: #475569;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .icon-btn:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        body.light-mode .lang-btn {
+            background: #3b82f6;
+            color: white;
+        }
+
+        body.light-mode .sidebar {
+            background: rgba(255, 255, 255, 0.6);
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .sidebar-title {
+            color: #0f172a;
+        }
+
+        body.light-mode .sidebar-item {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #475569;
+        }
+
+        body.light-mode .sidebar-item:hover {
+            color: #0f172a;
+        }
+
+        body.light-mode .sidebar-item.active {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        body.light-mode .download-btn {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        body.light-mode .download-btn:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        body.light-mode .content-area {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        body.light-mode .section-title {
+            color: #1e40af;
+        }
+
+        body.light-mode .about-card,
+        body.light-mode .experience-card,
+        body.light-mode .skill-category,
+        body.light-mode .education-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .about-text {
+            color: #475569;
+        }
+
+        body.light-mode .info-label {
+            color: #1e40af;
+        }
+
+        body.light-mode .info-value {
+            color: #0f172a;
+        }
+
+        body.light-mode .date-range {
+            color: #1e40af;
+        }
+
+        body.light-mode .job-title,
+        body.light-mode .education-title {
+            color: #0f172a;
+        }
+
+        body.light-mode .company-info {
+            color: #475569;
+        }
+
+        body.light-mode .tech-stack {
+            color: #1e40af;
+        }
+
+        body.light-mode .responsibilities li {
+            color: #475569;
+        }
+
+        body.light-mode .skill-category h3 {
+            color: #1e40af;
+        }
+
+        body.light-mode .skill-name {
+            color: #0f172a;
+        }
+
+        body.light-mode .skill-item {
+            background: rgba(241, 245, 249, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        body.light-mode .institution {
+            color: #7c3aed;
+        }
+
+        body.light-mode .education-description {
+            color: #475569;
+        }
+
+        body.light-mode footer {
+            color: #64748b;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .menu-toggle {
+            color: #1e293b;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #e2e8f0;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: #3b82f6;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #3b82f6;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .icon-btn:hover { 
+            background: #3b82f6;
+            color: white;
+        }
+
+        .lang-btn {
+            background: #3b82f6;
+            padding: 0.4rem 0.8rem;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .curriculum-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            max-width: 1600px;
+            margin: 0 auto;
+            min-height: calc(100vh - 80px);
+        }
+
+        .sidebar {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #f1f5f9;
+        }
+
+        .sidebar-title span {
+            background: linear-gradient(135deg, #3b82f6 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sidebar-item {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .sidebar-item:hover {
+            transform: translateX(5px);
+            border-color: #3b82f6;
+            color: #f1f5f9;
+        }
+
+        .sidebar-item.active {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            border-color: transparent;
+            color: white;
+        }
+
+        .sidebar-icon i {
+            font-size: 18px;
+            min-width: 20px;
+            text-align: center;
+            color: inherit;
+        }
+
+        .sidebar-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-item.active .sidebar-icon i {
+            color: #ffffff;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .content-area {
+            background: rgba(15, 23, 42, 0.2);
+            padding: 3rem;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #38bdf8;
+        }
+
+        .about-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #10b981;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-text {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .personal-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .info-label {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: #f1f5f9;
+            font-size: 1rem;
+        }
+
+        .experience-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #10b981;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 25px rgba(59, 130, 246, 0.1);
+        }
+
+        .experience-card:nth-child(even) {
+            border-left-color: #3b82f6;
+        }
+
+        .date-range {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-info {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            color: #38bdf8;
+            font-style: italic;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .responsibilities li {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            list-style: none;
+        }
+
+        .responsibilities li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+        }
+
+        .skills-container {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #10b981;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .skill-category:nth-child(2) { border-left-color: #3b82f6; }
+        .skill-category:nth-child(3) { border-left-color: #8b5cf6; }
+        .skill-category:nth-child(4) { border-left-color: #f59e0b; }
+        .skill-category:nth-child(5) { border-left-color: #fd000d; }
+        .skill-category:nth-child(6) { border-left-color: #a07429; }
+        .skill-category:nth-child(7) { border-left-color: #5eff00; }
+        .skill-category:nth-child(8) { border-left-color: #0bf5bb; }
+
+        .skill-category h3 {
+            color: #38bdf8;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            border-color: #3b82f6;
+        }
+
+        .skill-name {
+            color: #f1f5f9;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #051dfa;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 25px rgba(0, 38, 255, 0.1);
+        }
+
+        .education-title {
+            font-size: 1.3rem;
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+
+        .institution {
+            color: #8b5cf6;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .status-curso {
+            color: #1f2196;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .education-description {
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+
+        .cert-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cert-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+            border-radius: 8px;
+            border-left: 4px solid #4a9eff; /* Detalhe azul lateral */
+            transition: transform 0.2s;
+        }
+
+        .cert-list li:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .cert-institution {
+            font-weight: bold;
+            color: #4a9eff;
+            min-width: 80px;
+        }
+
+        .cert-name {
+            flex-grow: 1;
+            margin-left: 15px;
+            color: #e0e0e0;
+        }
+
+        .cert-hours {
+            background: #2a2a2a;
+            color: #4a9eff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            border: 1px solid #4a9eff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .curriculum-container { 
+                grid-template-columns: 1fr; 
+            }
+            .sidebar { 
+                border-right: none; 
+                border-bottom: 1px solid rgba(255,255,255,0.1); 
+            }
+            .personal-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 0;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+                border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            }
+
+            body.light-mode nav {
+                background: rgba(255, 255, 255, 0.98);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            nav.active {
+                max-height: 400px;
+            }
+
+            nav a {
+                padding: 1rem 1.5rem;
+                width: 100%;
+                border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+                transition: all 0.3s;
+            }
+
+            nav a:hover {
+                background: rgba(59, 130, 246, 0.1);
+                padding-left: 2rem;
+            }
+
+            nav a.active::after {
+                bottom: 0;
+                height: 100%;
+                width: 3px;
+                left: 0;
+                right: auto;
+            }
+
+            header {
+                flex-direction: row;
+            }
+            
+            nav {
+                gap: 0;
+            }
+            
+            .content-area {
+                padding: 2rem 1.5rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><i class="fa-solid fa-terminal"></i></div>
+        <nav id="navMenu">
+            <a href="portfolio_home.html">HOME</a>
+            <a href="servicos_page.html">SERVIÇOS</a>
+            <a href="#" class="active">CURRÍCULO</a>
+            <a href="projetos_page.html">PROJETOS</a>
+            <a href="contato_page.html">CONTATO</a>
+        </nav>
+        <div class="controls">
+            <button class="icon-btn" id="themeToggle"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        </div>
+
+        <button class="icon-btn menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="curriculum-container">
+        <aside class="sidebar">
+            <h2 class="sidebar-title">Meu <span>Currículo</span></h2>
+            
+            <div class="sidebar-item active" data-section="about">
+                <span class="sidebar-icon"><i class="fa-solid fa-user"></i></span>
+                <span>Sobre Mim</span>
+            </div>
+            
+            <div class="sidebar-item" data-section="education">
+                <span class="sidebar-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                <span>Formação</span>
+            </div>
+
+            <div class="sidebar-item" data-section="certifications">
+                <span class="sidebar-icon"><i class="fa-solid fa-medal"></i></span>
+                <span>Cursos Complementares</span>
+            </div>
+
+            <div class="sidebar-item" data-section="experience">
+                <span class="sidebar-icon"><i class="fa-solid fa-briefcase"></i></span>
+                <span>Experiência</span>
+            </div>
+            
+            <div class="sidebar-item" data-section="skills">
+                <span class="sidebar-icon"><i class="fa-solid fa-gears"></i></span>
+                <span>Habilidades</span>
+            </div>
+            
+
+
+            <button class="download-btn" onclick="window.location.href='/doc/AlessandroCV.pdf'">
+                DOWNLOAD CV COMPLETO ⬇
+            </button>
+        </aside>
+
+        <main class="content-area">
+            <section id="about" class="content-section active">
+                <h2 class="section-title">Sobre Mim</h2>
+                
+                <div class="about-card">
+                    <p class="about-text">
+                        Profissional de TI com mais de 8 anos de experiência em suporte técnico, infraestrutura e manutenção de sistemas. 
+                        Atualmente atuando como Técnico de Suporte PL na TIVIT, com foco em análise de incidentes, validação de requisições 
+                        e documentação técnica detalhada.
+                    </p>
+                    
+                    <p class="about-text">
+                        Possuo sólida experiência em ambientes corporativos críticos, tendo trabalhado com monitoramento de dispositivos IoT, 
+                        sustentação de sistemas e suporte técnico especializado. Busco constantemente aprimorar minhas habilidades e 
+                        contribuir para a excelência operacional das equipes em que atuo.
+                    </p>
+
+                    <div class="personal-info">
+                        <div class="info-item">
+                            <span class="info-label">Nome</span>
+                            <span class="info-value">Alessandro Alves da Silva</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Localização Atual</span>
+                            <span class="info-value">Maurilândia/GO - Brasil</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Idade</span>
+                            <span class="info-value">28 Anos</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">CNH</span>
+                            <span class="info-value">AB</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Email</span>
+                            <span class="info-value">alessandro.alves21017@outlook.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Telefone</span>
+                            <span class="info-value">(64) 99237-6177</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Experiência</span>
+                            <span class="info-value">8+ anos</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Disponibilidade de Mudança</span>
+                            <span class="info-value">Sim</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="content-section">
+                <h2 class="section-title">Trajetória Profissional</h2>
+
+                <div class="experience-card">
+                    <div class="date-range">Dezembro 2024 - Atualmente</div>
+                    <h3 class="job-title">Técnico de Suporte PL</h3>
+                    <div class="company-info">TIVIT • Maurilândia/GO - Home Office</div>
+                    <div class="tech-stack">SENSR.IT | EXCEL | ECM | Sustentação</div>
+                    <ul class="responsibilities">
+                        <li>Atuação em sustentação de sistemas ECM, realizando análise, validação e tratamento de 
+                            incidentes e requisições, assegurando a continuidade operacional dos serviços.</li>
+                        <li>Monitoramento de sistemas e aplicações, avaliando impactos no negócio e priorizando 
+                            atendimentos conforme criticidade.</li>
+                        <li>Coleta, análise e documentação de evidências técnicas, garantindo rastreabilidade, conformidade 
+                            com processos e encerramento adequado de chamados.</li>
+                    </ul>
+                    <div class="date-range">Maio 2021 - Dezembro 2024</div>
+                    <div class="company-info">TIVIT • Mineiros/GO - Presencial (Cliente BRF)</div>
+                    <div class="tech-stack">EXCEL | IoT</div>
+                    <ul class="responsibilities">
+                        <li>Suporte em ambiente IoT (Operação BRF), realizando monitoramento, configuração e manutenção 
+                            de dispositivos conectados, atuando diretamente na resolução de falhas de conectividade e 
+                            infraestrutura de hardware em ambiente industrial crítico. </li>
+                        <li>Apoio à segurança da informação, identificando comportamentos anômalos, falhas operacionais e 
+                            riscos sistêmicos. </li>
+                        <li>Atuação alinhada às boas práticas ITIL, com foco em qualidade, SLA e melhoria contínua.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3 class="job-title">Técnico em Informática (Terceirizado) </h3>
+                    <div class="company-info">Rede Mega de Supermercados • Maurilândia/GO - Hibrido</div>
+                    <ul class="responsibilities">
+                        <li>Suporte técnico a sistemas de PDV (Ponto de Venda) em ambiente Linux (Debian).</li>
+                        <li>Montagem e Manutenção de computadores corporativos.</li>
+                        <li>Suporte técnico remoto e presencial a usuários finais.</li>
+                        <li>Diagnóstico e resolução de problemas em hardware e software.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="date-range">Setembro 2020 - Março 2021</div>
+                    <h3 class="job-title">Operador de Utilidades</h3>
+                    <div class="company-info">Atvos Unidade Água Emendada • Mineiros/GO - Presencial</div>
+                    <ul class="responsibilities">
+                        <li>Monitoramento de sistemas de tratamento de água.</li>
+                        <li>Diagnóstico e resolução de problemas operacionais.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="date-range">Abril 2019 - Agosto 2020</div>
+                    <h3 class="job-title">Operador de ETA e Osmose Reversa</h3>
+                    <div class="company-info">Vale do Verdão S/A • Maurilândia/GO - Presencial</div>
+                    <ul class="responsibilities">
+                        <li>Monitoramento de indicadores e controle de Caldeiras, ETA e Osmose Reversa.</li>
+                        <li>Inspeção e operação de equipamentos.</li>
+                        <li>Diagnóstico e resolução de problemas operacionais.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="date-range">Maio 2018 - Novembro 2018</div>
+                    <h3 class="job-title">Auxiliar de Caldeiras</h3>
+                    <div class="company-info">Vale do Verdão S/A • Maurilândia/GO - Presencial</div>
+                    <ul class="responsibilities">
+                        <li>Limpeza e auxílio nas operações de caldeiras, inspeção e manobras de válvulas.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="date-range">Março 2016 - Atualmente</div>
+                    <h3 class="job-title">Técnico em Informática</h3>
+                    <div class="company-info">Autônomo - Remoto</div>
+                    <ul class="responsibilities">
+                        <li>Montagem e Manutenção de computadores corporativos.</li>
+                        <li>Suporte técnico remoto e presencial a usuários finais.</li>
+                        <li>Diagnóstico e resolução de problemas em hardware e software.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div id="skills" class="content-section">
+                <h2 class="section-title">Minhas Habilidades</h2>
+
+                <div class="skills-container">
+
+                    <div class="skill-category">
+                        <h3>Suporte & Operação de TI</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-name">Suporte N1/N2 (Remoto e Presencial)</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Sustentação de Sistemas ECM</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Análise e Rastreabilidade de Incidentes</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Sistemas de PDV & Automação Comercial</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Metodologia ITIL & Gestão de SLA</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Infraestrutura & Hardware</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-name">Montagem e Diagnóstico Avançado de Hardware</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Monitoramento de Dispositivos IoT</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Redes Locais & Conectividade (TCP/IP)</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Segurança da Informação & Prevenção de Riscos</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Sistemas & Desenvolvimento</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-name">Windows & Linux (Debian)</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Python & Automação de Processos</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">C# & Orientação a Objetos</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Banco de Dados & SQL</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Front-End (HTML & CSS)</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">.NET & GitHub Copilot</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Gestão & Soft Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-name">Documentação Técnica & Evidências</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Organização e Padronização (5S)</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Atendimento ao Cliente & Consultoria Técnica</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Resiliência em Ambientes Críticos</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <section id="education" class="content-section">
+                <h2 class="section-title">Formação Acadêmica</h2>
+
+                <div class="education-card">
+                    <div class="date-range">2024 - 2027</div>
+                    <h3 class="education-title">Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
+                    <div class="institution">Faculdade Focus</div>
+                    <p class="education-description">
+                        Curso focado em desenvolvimento de software, análise de sistemas, banco de dados, 
+                        programação e gestão de projetos de TI.
+                        <h3 class="status-curso">Em Andamento</h3>
+                    </p>
+                </div>
+
+                <div class="education-card">
+                    <div class="date-range">2024 - 2025</div>
+                    <h3 class="education-title">Técnico em Logística</h3>
+                    <div class="institution">SENAC</div>
+                    <p class="education-description">
+                        Formação técnica em Logística 
+                        <h3 class="status-curso">Concluído</h3>
+                    </p>
+                </div>
+
+                <div class="education-card">
+                    <div class="date-range">2014</div>
+                    <h3 class="education-title">Ensino Médio</h3>
+                    <div class="institution">Cesaf - Maurilândia/GO</div>
+                    <p class="education-description">
+                        Ensino Médio 
+                        <h3 class="status-curso">Concluído</h3>
+                    </p>
+                </div>
+            </section>
+
+            <section id="certifications" class="content-section">
+                <h2 class="section-title">Cursos Complementares</h2>
+                
+                <div class="skills-container">
+                        <ul class="cert-list">
+                            <li>
+                                <span class="cert-institution">FIAP</span>
+                                <span class="cert-name">Gestão de Infraestrutura de TI</span>
+                                <span class="cert-hours">20h</span>
+                            </li>
+                            <li>
+                                <span class="cert-institution">FIAP</span>
+                                <span class="cert-name">Python</span>
+                                <span class="cert-hours">80h</span>
+                            </li>
+                            <li>
+                                <span class="cert-institution">Alura</span>
+                                <span class="cert-name">C# e Orientação a Objetos</span>
+                                <span class="cert-hours">41h</span>
+                            </li>
+                            <li>
+                                <span class="cert-institution">Alura</span>
+                                <span class="cert-name">Front-End (HTML e CSS)</span>
+                                <span class="cert-hours">181h</span>
+                            </li>
+                            <li>
+                                <span class="cert-institution">Udemy</span>
+                                <span class="cert-name">Banco de Dados e SQL</span>
+                                <span class="cert-hours">58h</span>
+                            </li>
+                            <li>
+                                <span class="cert-institution">Udemy</span>
+                                <span class="cert-name">Desenvolvedor Web Completo</span>
+                                <span class="cert-hours">48h</span>
+                            </li>
+                            <li>
+                                <span class="cert-institution">Preditiva</span>
+                                <span class="cert-name">Excel para Análise de Dados</span>
+                                <span class="cert-hours">12h</span>
+                            </li>
+                            <li>
+                                <span class="cert-institution">DIO</span>
+                                <span class="cert-name">.NET com GitHub Copilot</span>
+                                <span class="cert-hours">71h</span>
+                            </li>
+                        </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 Alessandro Alves da Silva. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', function() {
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                
+                this.classList.add('active');
+                
+                contentSections.forEach(section => section.classList.remove('active'));
+                
+                const sectionId = this.getAttribute('data-section');
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        bar.style.width = bar.style.width;
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+</body>
+</html>

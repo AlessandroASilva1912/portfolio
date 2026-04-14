@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Contato - Alessandro Alves da Silva</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Courier New', monospace;
+            background: linear-gradient(135deg, #0f172a 0%, #000000 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            color: #1a202c;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        body.light-mode header {
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #e2e8f0;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        body.light-mode .menu-toggle {
+            color: #1a202c;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: #3b82f6;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #3b82f6;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        body.light-mode .icon-btn { color: #1a202c; }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 5%;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-title span {
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        body.light-mode .subtitle { color: #475569; }
+
+        /* Contact Cards */
+        .contact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 16px;
+            padding: 1.8rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.light-mode .contact-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateX(8px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 4px 24px rgba(59, 130, 246, 0.12);
+        }
+
+        .contact-card:hover::before {
+            opacity: 1;
+        }
+
+        .contact-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+        }
+
+        .contact-icon.email {
+            background: rgba(59, 130, 246, 0.15);
+            color: #3b82f6;
+        }
+
+        .contact-icon.whatsapp {
+            background: rgba(37, 211, 102, 0.15);
+            color: #25d366;
+        }
+
+        .contact-icon.location {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+        }
+
+        .contact-icon.linkedin {
+            background: rgba(10, 102, 194, 0.15);
+            color: #0a66c2;
+        }
+
+        .contact-icon.github {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+        }
+
+        body.light-mode .contact-icon.github {
+            background: rgba(0, 0, 0, 0.08);
+            color: #1a202c;
+        }
+
+        .contact-details {
+            flex: 1;
+        }
+
+        .contact-label {
+            color: #64748b;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-value {
+            color: #e2e8f0;
+            font-size: 1rem;
+        }
+
+        body.light-mode .contact-value { color: #1a202c; }
+
+        .contact-action {
+            color: #3b82f6;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+
+        .contact-card:hover .contact-action {
+            opacity: 1;
+        }
+
+        .arrow-icon {
+            color: #64748b;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover .arrow-icon {
+            color: #3b82f6;
+            transform: translateX(4px);
+        }
+
+        /* Non-clickable location card */
+        .contact-card.no-link {
+            cursor: default;
+        }
+
+        .contact-card.no-link:hover {
+            transform: none;
+            border-color: rgba(59, 130, 246, 0.2);
+            box-shadow: none;
+        }
+
+        .contact-card.no-link:hover .contact-action {
+            opacity: 0;
+        }
+
+        .contact-card.no-link:hover .arrow-icon {
+            transform: none;
+            color: #64748b;
+        }
+
+        /* Divider */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(59, 130, 246, 0.15);
+        }
+
+        .divider-label {
+            color: #64748b;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 0;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+                border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            }
+
+            body.light-mode nav {
+                background: rgba(255, 255, 255, 0.98);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            nav.active {
+                max-height: 400px;
+            }
+
+            nav a {
+                padding: 1rem 1.5rem;
+                width: 100%;
+                border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+                transition: all 0.3s;
+            }
+
+            nav a:hover {
+                background: rgba(59, 130, 246, 0.1);
+                padding-left: 2rem;
+            }
+
+            nav a.active::after {
+                bottom: 0;
+                height: 100%;
+                width: 3px;
+                left: 0;
+                right: auto;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .contact-card {
+                padding: 1.4rem;
+            }
+
+            .contact-action {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><i class="fa-solid fa-terminal"></i></div>
+        <nav id="navMenu">
+            <a href="portfolio_home.html">HOME</a>
+            <a href="servicos_page.html">SERVIÇOS</a>
+            <a href="curriculo_page.html">CURRÍCULO</a>
+            <a href="projetos_page.html">PROJETOS</a>
+            <a href="#" class="active">CONTATO</a>
+        </nav>
+        <div class="controls">
+            <button class="icon-btn" id="themeToggle"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        </div>
+        <button class="icon-btn menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="contact-container">
+        <div class="page-header">
+            <h1 class="page-title">Vamos <span>Conversar?</span></h1>
+            <p class="subtitle">Estou aberto a novas oportunidades e colaborações em projetos inovadores.<br>Entre em contato pelo canal de sua preferência.</p>
+        </div>
+
+        <div class="contact-cards">
+
+            <a href="mailto:alessandro.alves21017@outlook.com" class="contact-card">
+                <div class="contact-icon email">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <span class="contact-label">E-mail</span>
+                    <span class="contact-value">alessandro.alves21017@outlook.com</span>
+                </div>
+                <span class="contact-action">Enviar e-mail</span>
+                <i class="fa-solid fa-arrow-right arrow-icon"></i>
+            </a>
+
+            <a href="https://wa.me/5564992376177" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="contact-details">
+                    <span class="contact-label">Telefone / WhatsApp</span>
+                    <span class="contact-value">(64) 99237-6177</span>
+                </div>
+                <span class="contact-action">Abrir WhatsApp</span>
+                <i class="fa-solid fa-arrow-right arrow-icon"></i>
+            </a>
+
+            <a href="https://maps.google.com/?q=Maurilândia,GO,Brasil" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon location">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="contact-details">
+                    <span class="contact-label">Localização</span>
+                    <span class="contact-value">Maurilândia, GO — Brasil</span>
+                </div>
+                <span class="contact-action">Ver no mapa</span>
+                <i class="fa-solid fa-arrow-right arrow-icon"></i>
+            </a>
+
+            <div class="section-divider">
+                <span class="divider-label">Redes sociais</span>
+            </div>
+
+            <a href="https://www.linkedin.com/in/alessandro-alves-264b31196/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
+                </div>
+                <div class="contact-details">
+                    <span class="contact-label">LinkedIn</span>
+                    <span class="contact-value">Alessandro Alves da Silva</span>
+                </div>
+                <span class="contact-action">Ver perfil</span>
+                <i class="fa-solid fa-arrow-right arrow-icon"></i>
+            </a>
+
+            <a href="https://github.com/AlessandroASilva1912" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon github">
+                    <i class="fa-brands fa-github"></i>
+                </div>
+                <div class="contact-details">
+                    <span class="contact-label">GitHub</span>
+                    <span class="contact-value">Alessandro Alves da Silva</span>
+                </div>
+                <span class="contact-action">Ver perfil</span>
+                <i class="fa-solid fa-arrow-right arrow-icon"></i>
+            </a>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Alessandro Alves da Silva. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        const themeToggle = document.getElementById('themeToggle');
+
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+    </script>
+</body>
+</html>

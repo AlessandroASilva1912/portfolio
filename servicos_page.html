@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Serviços - Alessandro Alves da Silva</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Courier New', monospace;
+            background: linear-gradient(135deg, #0f172a 0%, #000000 100%);
+            color: #f1f5f9;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: #0f172a;
+        }
+
+        body.light-mode header {
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .logo,
+        body.light-mode nav a,
+        body.light-mode .icon-btn {
+            color: #1e293b;
+        }
+
+        body.light-mode nav a:hover,
+        body.light-mode nav a.active {
+            color: #3b82f6;
+        }
+
+        body.light-mode .page-title,
+        body.light-mode .subtitle,
+        body.light-mode .service-card h3 {
+            color: #0f172a;
+        }
+
+        body.light-mode .service-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .service-card:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.1);
+        }
+
+        body.light-mode footer {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: #64748b;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #e2e8f0;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        body.light-mode .menu-toggle {
+            color: #1e293b;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: #3b82f6;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #3b82f6;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .icon-btn:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .lang-btn {
+            background: #3b82f6;
+            padding: 0.4rem 0.8rem;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 5%;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #f1f5f9;
+        }
+
+        .page-title span {
+            background: linear-gradient(135deg, #3b82f6 0%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: rgba(30, 41, 59, 0.4);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(30, 41, 59, 0.8);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #3b82f6;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #f1f5f9;
+            font-weight: bold;
+        }
+
+        .service-card p {
+            color: #94a3b8;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .card-carousel {
+            border-radius: 10px;
+            overflow: hidden;
+            margin: -2.5rem -2.5rem 1.5rem -2.5rem;
+            position: relative;
+        }
+
+        .carousel-track-wrap {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 200px;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 55%, rgba(15, 23, 42, 0.95) 100%);
+        }
+
+        body.light-mode .carousel-slide::after {
+            background: linear-gradient(to bottom, transparent 55%, rgba(255,255,255,0.95) 100%);
+        }
+
+        .carousel-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.55);
+            color: #93c5fd;
+            font-size: 0.72rem;
+            font-family: 'Monaco', 'Courier New', monospace;
+            letter-spacing: 1px;
+            padding: 2px 9px;
+            border-radius: 20px;
+            border: 1px solid rgba(59,130,246,0.35);
+            backdrop-filter: blur(4px);
+            z-index: 5;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(59,130,246,0.3);
+            color: #93c5fd;
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px;
+            z-index: 5;
+            transition: background 0.2s;
+            backdrop-filter: blur(4px);
+            padding: 0;
+        }
+
+        .carousel-btn:hover { background: rgba(59,130,246,0.4); }
+        .carousel-btn.prev { left: 8px; }
+        .carousel-btn.next { right: 8px; }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+            z-index: 5;
+        }
+
+        .c-dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            transition: all 0.25s;
+        }
+
+        .c-dot.active {
+            background: #3b82f6;
+            box-shadow: 0 0 6px #3b82f6;
+            width: 14px;
+            border-radius: 3px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 0;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+                border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            }
+
+            body.light-mode nav {
+                background: rgba(255, 255, 255, 0.98);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            nav.active {
+                max-height: 400px;
+            }
+
+            nav a {
+                padding: 1rem 1.5rem;
+                width: 100%;
+                border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+                transition: all 0.3s;
+            }
+
+            nav a:hover {
+                background: rgba(59, 130, 246, 0.1);
+                padding-left: 2rem;
+            }
+
+            nav a.active::after {
+                bottom: 0;
+                height: 100%;
+                width: 3px;
+                left: 0;
+                right: auto;
+            }
+
+            .services-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .page-title { 
+                font-size: 2.2rem; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><i class="fa-solid fa-terminal"></i></div>
+        <nav id="navMenu">
+            <a href="portfolio_home.html">HOME</a>
+            <a href="#" class="active">SERVIÇOS</a>
+            <a href="curriculo_page.html">CURRÍCULO</a>
+            <a href="projetos_page.html">PROJETOS</a>
+            <a href="contato_page.html">CONTATO</a>
+        </nav>
+        <div class="controls">
+            <button class="icon-btn" id="themeToggle"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        </div>
+
+        <button class="icon-btn menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="services-container">
+        <h1 class="page-title">Meus <span>Serviços</span></h1>
+        <p class="subtitle">
+            Serviços especializados em suporte técnico N1/N2, montagem de hardware de alta performance, 
+            infraestrutura de redes e segurança da informação — com mais de 6 anos de atuação em 
+            ambientes corporativos e atendimento autônomo.
+        </p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="50" height="50" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12a8 8 0 0 1 16 0"/>
+                            <rect x="2" y="12" width="4" height="6" rx="1"/>
+                            <rect x="18" y="12" width="4" height="6" rx="1"/>
+                            <path d="M8 18h4a3 3 0 0 0 3-3"/>
+                    </svg>
+                </div>
+                <h3>Suporte Técnico <br>e Operação de TI</h3>
+                <p>Atendimento a usuários N1 e N2, remoto e presencial. Análise e resolução de incidentes, documentação técnica e cumprimento de SLA em ambientes corporativos.</p>
+            </div>
+
+            <div class="service-card" style="padding: 0; overflow: hidden;">
+
+                <div class="card-carousel">
+                    <div class="carousel-track-wrap">
+                        <div class="carousel-track" id="hwTrack">
+                            <div class="carousel-slide">
+                                <img src="img/11.jpeg" alt="PC Build LED Azul">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/22.jpeg" alt="PC Build Roxo">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/20250505_171655.jpg" alt="PC Build">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/1.jpeg" alt="PC Gamer RGB">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/WhatsApp Image 2026-03-24 at 00.13.44.jpeg" alt="PC Build Colorido">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="carousel-counter" id="hwCounter">1 / 4</span>
+
+                    <button class="carousel-btn prev" onclick="hwMove(-1)">&#8249;</button>
+                    <button class="carousel-btn next" onclick="hwMove(1)">&#8250;</button>
+
+                    <div class="carousel-dots" id="hwDots">
+                        <button class="c-dot active" onclick="hwGoTo(0)"></button>
+                        <button class="c-dot" onclick="hwGoTo(1)"></button>
+                        <button class="c-dot" onclick="hwGoTo(2)"></button>
+                        <button class="c-dot" onclick="hwGoTo(3)"></button>
+                    </div>
+                </div>
+
+                <div style="padding: 0 2.5rem 2.5rem;">
+                    <div class="service-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="6" y="2" width="12" height="20" rx="2"/>
+                                <circle cx="12" cy="18" r="1"/>
+                                <path d="M3 7l4 4"/>
+                                <path d="M7 7l-4 4"/>
+                        </svg>
+                    </div>
+                    <h3>Montagem de PCs de alta performance<br> (Gamer/Workstation)</h3>
+                    <p>limpeza preventiva e substituição de componentes.</p></br>
+                    <p>Avaliação técnica de hardware e software para upgrades direcionados. Prevenção de falhas, otimização de desempenho e orientação para tomada de decisão em TI.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="50" height="50" viewBox="0 0 24 24" 
+                        fill="none" stroke="currentColor" stroke-width="2" 
+                        stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                </div>
+                    <h3>Infraestrutura <br>e Monitoramento</h3>
+                    <p>Monitoramento de sistemas críticos, aplicações e dispositivos IoT. Diagnóstico de falhas de conectividade e infraestrutura em ambientes industriais e corporativos.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                </div>
+                <h3>Consultoria <br>e Performance</h3>
+                <p>Projetos de upgrade e otimização para máxima performance de hardware e software.</p><br>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3>Segurança <br>Digital e Backup</h3>
+                <p>Instalação e configuração de redes Wi-Fi, roteadores, impressoras e periféricos. Organização e otimização de ambientes de trabalho residencial e corporativo.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                    </svg>
+                </div>
+                <h3>Infraestrutura <br>Residencial e Office</h3>
+                <p>Instalação de redes Wi-Fi, roteadores, impressoras e organização de home office.</p><br>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Alessandro Alves da Silva. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        const themeToggle = document.getElementById('themeToggle');
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-mode');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+        });
+
+        let hwCurrent = 0;
+        const HW_TOTAL = 4;
+        const hwTrack   = document.getElementById('hwTrack');
+        const hwCounter = document.getElementById('hwCounter');
+        const hwDots    = document.querySelectorAll('#hwDots .c-dot');
+
+        function hwUpdate() {
+            hwTrack.style.transform = 'translateX(-' + (hwCurrent * 100) + '%)';
+            hwCounter.textContent   = (hwCurrent + 1) + ' / ' + HW_TOTAL;
+            hwDots.forEach((d, i) => d.classList.toggle('active', i === hwCurrent));
+        }
+
+        function hwMove(dir) {
+            hwCurrent = (hwCurrent + dir + HW_TOTAL) % HW_TOTAL;
+            hwUpdate();
+        }
+
+        function hwGoTo(n) {
+            hwCurrent = n;
+            hwUpdate();
+        }
+
+        setInterval(() => hwMove(1), 4500);
+    </script>
+</body>
+</html>
