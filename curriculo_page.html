@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://alessandroasilva1912.github.io/portfolio/curriculo_page.html">
+    <meta name="description" content="Trajetória profissional, formação acadêmica, certificações e habilidades técnicas de Alessandro Alves da Silva.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Currículo — Alessandro Alves da Silva">
+    <meta property="og:description" content="Trajetória profissional, formação acadêmica, certificações e habilidades técnicas de Alessandro Alves da Silva.">
+    <meta property="og:image" content="https://alessandroasilva1912.github.io/portfolio/img/1638328445280.jpg">
+    <meta property="og:url" content="https://alessandroasilva1912.github.io/portfolio/curriculo_page.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Currículo — Alessandro Alves da Silva">
+    <meta name="twitter:description" content="Trajetória profissional, formação acadêmica, certificações e habilidades técnicas de Alessandro Alves da Silva.">
+    <meta name="twitter:image" content="https://alessandroasilva1912.github.io/portfolio/img/1638328445280.jpg">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <title>Currículo - Alessandro Alves da Silva</title>
     <style>
         * {
@@ -714,10 +728,14 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="css/enhance.css">
 </head>
 <body>
     <header>
-        <div class="logo"><i class="fa-solid fa-terminal"></i></div>
+        <a href="index.html" class="logo prompt-tag" style="text-decoration:none;">
+            <span class="p-user">alessandro</span><span class="p-sep">@dev:~$</span>
+            <span class="p-cursor"></span>
+        </a>
         <nav id="navMenu">
             <a href="index.html">HOME</a>
             <a href="servicos_page.html">SERVIÇOS</a>
@@ -736,6 +754,7 @@
 
     <div class="curriculum-container">
         <aside class="sidebar">
+            <div class="page-eyebrow" style="justify-content:flex-start;">alessandro@dev<span class="p-sep">:~$</span> cat curriculo.md</div>
             <h2 class="sidebar-title">Meu <span>Currículo</span></h2>
             
             <div class="sidebar-item active" data-section="about">
@@ -798,7 +817,7 @@
                         </div>
                         <div class="info-item">
                             <span class="info-label">Idade</span>
-                            <span class="info-value">28 Anos</span>
+                            <span class="info-value">29 Anos</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">CNH</span>
@@ -1162,5 +1181,6 @@
             observer.observe(skillsSection);
         }
     </script>
+    <script src="js/enhance.js"></script>
 </body>
 </html>

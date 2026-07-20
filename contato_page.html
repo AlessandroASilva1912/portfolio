@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://alessandroasilva1912.github.io/portfolio/contato_page.html">
+    <meta name="description" content="Entre em contato com Alessandro Alves da Silva para oportunidades, freelas ou parcerias em TI e desenvolvimento.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contato — Alessandro Alves da Silva">
+    <meta property="og:description" content="Entre em contato com Alessandro Alves da Silva para oportunidades, freelas ou parcerias em TI e desenvolvimento.">
+    <meta property="og:image" content="https://alessandroasilva1912.github.io/portfolio/img/1638328445280.jpg">
+    <meta property="og:url" content="https://alessandroasilva1912.github.io/portfolio/contato_page.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contato — Alessandro Alves da Silva">
+    <meta name="twitter:description" content="Entre em contato com Alessandro Alves da Silva para oportunidades, freelas ou parcerias em TI e desenvolvimento.">
+    <meta name="twitter:image" content="https://alessandroasilva1912.github.io/portfolio/img/1638328445280.jpg">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <title>Contato - Alessandro Alves da Silva</title>
     <style>
         * {
@@ -401,10 +415,14 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="css/enhance.css">
 </head>
 <body>
     <header>
-        <div class="logo"><i class="fa-solid fa-terminal"></i></div>
+        <a href="index.html" class="logo prompt-tag" style="text-decoration:none;">
+            <span class="p-user">alessandro</span><span class="p-sep">@dev:~$</span>
+            <span class="p-cursor"></span>
+        </a>
         <nav id="navMenu">
             <a href="index.html">HOME</a>
             <a href="servicos_page.html">SERVIÇOS</a>
@@ -422,6 +440,7 @@
 
     <div class="contact-container">
         <div class="page-header">
+            <div class="page-eyebrow">alessandro@dev<span class="p-sep">:~$</span> ./contato.sh --send</div>
             <h1 class="page-title">Vamos <span>Conversar?</span></h1>
             <p class="subtitle">Estou aberto a novas oportunidades e colaborações em projetos inovadores.<br>Entre em contato pelo canal de sua preferência.</p>
         </div>
@@ -531,5 +550,6 @@
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
     </script>
+    <script src="js/enhance.js"></script>
 </body>
 </html>

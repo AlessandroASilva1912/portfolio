@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://alessandroasilva1912.github.io/portfolio/index.html">
+    <meta name="description" content="Portfólio de Alessandro Alves da Silva: suporte técnico N1/N2, infraestrutura, montagem de hardware e desenvolvimento de software.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Alessandro Alves da Silva — Suporte de TI & Desenvolvedor de Software">
+    <meta property="og:description" content="Portfólio de Alessandro Alves da Silva: suporte técnico N1/N2, infraestrutura, montagem de hardware e desenvolvimento de software.">
+    <meta property="og:image" content="https://alessandroasilva1912.github.io/portfolio/img/1638328445280.jpg">
+    <meta property="og:url" content="https://alessandroasilva1912.github.io/portfolio/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alessandro Alves da Silva — Suporte de TI & Desenvolvedor de Software">
+    <meta name="twitter:description" content="Portfólio de Alessandro Alves da Silva: suporte técnico N1/N2, infraestrutura, montagem de hardware e desenvolvimento de software.">
+    <meta name="twitter:image" content="https://alessandroasilva1912.github.io/portfolio/img/1638328445280.jpg">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <title>Alessandro Alves da Silva - Desenvolvedor de Software</title>
     <style>
         * {
@@ -337,10 +351,28 @@
             .cta-buttons { justify-content: center; flex-wrap: wrap; }
         }
     </style>
+    <link rel="stylesheet" href="css/enhance.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alessandro Alves da Silva",
+        "jobTitle": "Analista de Suporte / Técnico em TI",
+        "url": "https://alessandroasilva1912.github.io/portfolio/",
+        "image": "https://alessandroasilva1912.github.io/portfolio/img/1638328445280.jpg",
+        "sameAs": [
+            "https://www.linkedin.com/in/alessandro-alves-264b31196/",
+            "https://github.com/AlessandroASilva1912"
+        ]
+    }
+    </script>
 </head>
 <body>
     <header>
-        <div class="logo"><i class="fa-solid fa-terminal"></i></div>
+        <a href="index.html" class="logo prompt-tag" style="text-decoration:none;">
+            <span class="p-user">alessandro</span><span class="p-sep">@dev:~$</span>
+            <span class="p-cursor"></span>
+        </a>
         <nav id="navMenu">
             <a href="#" class="active">HOME</a>
             <a href="servicos_page.html">SERVIÇOS</a>
@@ -359,18 +391,33 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h3>Analista de Suporte / Técnico em TI</h3>
-            <h1>Olá, eu sou</h1>
+            <span class="hero-eyebrow"><span class="status-dot"></span> alessandro@dev<span class="p-sep">:~$</span> whoami</span>
             <h1 class="name">Alessandro Alves da Silva</h1>
-            <p>
-                Profissional de TI com foco em 
-            </p>
-            <p>
-                <span class="highlight">suporte técnico</span>, 
-                <span class="highlight">manutenção de computadores</span>, 
-                <span class="highlight">operação de sistemas</span> e 
-                <span class="highlight">apoio à infraestrutura</span>.
-            </p>
+            <h3><span data-typewriter='["Analista de Suporte / Técnico em TI", "Desenvolvedor de Software", "Suporte N1/N2 & Infraestrutura"]'></span></h3>
+
+            <div class="term-window" style="margin: 1.5rem 0;">
+                <div class="term-titlebar">
+                    <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+                    <span class="term-name">sobre.sh</span>
+                </div>
+                <div class="term-body">
+                    <span class="tp">$</span><span class="tl">cat</span> sobre.sh<br>
+                    Profissional de TI com foco em
+                    <span class="highlight">suporte técnico</span>,
+                    <span class="highlight">manutenção de computadores</span>,
+                    <span class="highlight">operação de sistemas</span> e
+                    <span class="highlight">apoio à infraestrutura</span>.
+                </div>
+            </div>
+
+            <div class="chip-row" style="margin-bottom: 1.8rem;">
+                <span class="chip">Suporte N1/N2</span>
+                <span class="chip">Redes & Infra</span>
+                <span class="chip">Hardware</span>
+                <span class="chip">Segurança Digital</span>
+                <span class="chip">Desenvolvimento</span>
+            </div>
+
             <div class="cta-buttons">
                 <a href="doc/AlessandroCV.pdf" class="btn">DOWNLOAD CV ⬇</a>
                 <a href="https://www.linkedin.com/in/alessandro-alves-264b31196/" class="btn social-btn" target="_blank" rel="noopener noreferrer">
@@ -436,5 +483,6 @@
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
     </script>
+    <script src="js/enhance.js"></script>
 </body>
 </html>
