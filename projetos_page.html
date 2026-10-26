@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href="https://alessandroasilva1912.github.io/portfolio/projetos_page.html">
-    <meta name="description" content="Projetos desenvolvidos por Alessandro Alves da Silva: OS Manager, SecureAuth MFA, StockPro e outros sistemas.">
+    <meta name="description" content="Projetos desenvolvidos por Alessandro Alves da Silva: AgendaSystem, OS Manager, StockPro e SecureAuth MFA.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Projetos — Alessandro Alves da Silva">
-    <meta property="og:description" content="Projetos desenvolvidos por Alessandro Alves da Silva: OS Manager, SecureAuth MFA, StockPro e outros sistemas.">
+    <meta property="og:description" content="Projetos desenvolvidos por Alessandro Alves da Silva: AgendaSystem, OS Manager, StockPro e SecureAuth MFA.">
     <meta property="og:image" content="https://alessandroasilva1912.github.io/portfolio/img/1638328445280.jpg">
     <meta property="og:url" content="https://alessandroasilva1912.github.io/portfolio/projetos_page.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Projetos — Alessandro Alves da Silva">
-    <meta name="twitter:description" content="Projetos desenvolvidos por Alessandro Alves da Silva: OS Manager, SecureAuth MFA, StockPro e outros sistemas.">
+    <meta name="twitter:description" content="Projetos desenvolvidos por Alessandro Alves da Silva: AgendaSystem, OS Manager, StockPro e SecureAuth MFA.">
     <meta name="twitter:image" content="https://alessandroasilva1912.github.io/portfolio/img/1638328445280.jpg">
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
     <link
@@ -535,16 +535,26 @@
       <h1 class="page-title">Meus <span>Projetos</span></h1>
 
       <div class="carousel-wrapper">
-        <button class="carousel-btn prev" onclick="prevSlide()">‹</button>
-        <button class="carousel-btn next" onclick="nextSlide()">›</button>
+        <button aria-label="Projeto anterior" class="carousel-btn prev" onclick="prevSlide()">‹</button>
+        <button aria-label="Próximo projeto" class="carousel-btn next" onclick="nextSlide()">›</button>
 
         <div class="carousel">
           <div class="carousel-inner" id="carouselInner">
+<div class="project-card">
+  <div class="project-info">
+    <div><h2 class="project-title">AgendaSystem</h2><span class="status-badge">PROJETO .NET</span></div>
+    <p class="project-description">Sistema de agendamento para serviços com ASP.NET Core MVC, Entity Framework Core e SQLite. Permite organizar profissionais, serviços e clientes, com acesso separado para administração e clientes.</p>
+    <p class="project-description"><strong>Regra de negócio em destaque:</strong> verifica sobreposição de horários por profissional e considera a duração do serviço e o expediente antes de aceitar um agendamento.</p>
+    <div class="tech-tags"><span class="tech-tag">C# / ASP.NET Core</span><span class="tech-tag">Entity Framework Core</span><span class="tech-tag">SQLite</span><span class="tech-tag">Identity</span></div>
+    <div class="project-buttons"><a href="https://github.com/AlessandroASilva1912/AgendaSystem" class="btn-github">GitHub</a><a href="https://github.com/AlessandroASilva1912/AgendaSystem#readme" class="btn-deploy">Como executar →</a></div>
+  </div>
+  <div class="term-window"><div class="term-titlebar"><span class="term-name">Fluxo de agendamento</span></div><div class="term-body"><ol><li>Escolher profissional, serviço e data</li><li>Consultar expediente e horários ocupados</li><li>Validar conflito no servidor</li><li>Confirmar e acompanhar o agendamento</li></ol><p>Calendário visual, permissões por perfil e relatórios com exportação.</p></div></div>
+</div>
             <div class="project-card">
               <div class="project-info">
                 <div>
                   <h2 class="project-title">OS Manager</h2>
-                  <span class="status-badge">COMPLETO</span>
+                  <span class="status-badge">PROJETO DE PORTFÓLIO</span>
                 </div>
                 <p class="project-description">
                   Sistema completo de gerenciamento de Ordens de Serviço para
@@ -563,7 +573,7 @@
                     class="btn-github"
                     >GitHub</a
                   >
-                  <a href="#" class="btn-deploy">Deploy →</a>
+                  <a href="https://github.com/AlessandroASilva1912/OS-Manager-Sistema-de-Ordens-de-Servi-o#readme" class="btn-deploy">Como executar →</a>
                 </div>
               </div>
               <div class="project-image">
@@ -594,7 +604,7 @@
               <div class="project-info">
                 <div>
                   <h2 class="project-title">SecureAuth MFA</h2>
-                  <span class="status-badge">COMPLETO</span>
+                  <span class="status-badge">PROJETO DE PORTFÓLIO</span>
                 </div>
                 <p class="project-description">
                   Sistema de autenticação multi-fator (MFA) para aplicações web,
@@ -615,7 +625,7 @@
                     class="btn-github"
                     >GitHub</a
                   >
-                  <a href="#" class="btn-deploy">Deploy →</a>
+                  <a href="https://github.com/AlessandroASilva1912/secureauth-mfa#readme" class="btn-deploy">Como executar →</a>
                 </div>
               </div>
               <div class="project-image">
@@ -646,7 +656,7 @@
               <div class="project-info">
                 <div>
                   <h2 class="project-title">StockPro — Sistema de Gerenciamento de Estoque</h2>
-                  <span class="status-badge">COMPLETO</span>
+                  <span class="status-badge">PROJETO DE PORTFÓLIO</span>
                 </div>
                 <p class="project-description">
                   Aplicação web full-stack desenvolvida com Python/Flask e SQLite, sem dependências externas de frontend. 
@@ -668,7 +678,7 @@
                     class="btn-github"
                     >GitHub</a
                   >
-                  <a href="#" class="btn-deploy">Deploy →</a>
+                  <a href="https://github.com/AlessandroASilva1912/Gest-o_de_Estoque#readme" class="btn-deploy">Como executar →</a>
                 </div>
               </div>
               <div class="project-image">
@@ -710,6 +720,7 @@
           <span class="indicator active" onclick="goToSlide(0)"></span>
           <span class="indicator" onclick="goToSlide(1)"></span>
           <span class="indicator" onclick="goToSlide(2)"></span>
+          <span class="indicator" onclick="goToSlide(3)"></span>
         </div>
       </div>
     </div>
@@ -745,7 +756,7 @@
       });
 
       let currentSlide = 0;
-      const totalSlides = 3;
+      const totalSlides = document.querySelectorAll("#carouselInner > .project-card").length;
 
       function updateCarousel() {
         const carouselInner = document.getElementById("carouselInner");
