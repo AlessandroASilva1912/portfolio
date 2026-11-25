@@ -78,7 +78,6 @@ nav a.active {
   color: var(--accent) !important;
   background: rgba(59, 130, 246, 0.14);
 }
-nav a.active::after { display: none !important; }
 nav a.active::before { content: '['; margin-right: 4px; color: var(--signal); }
 nav a.active::after { content: ']'; margin-left: 4px; color: var(--signal); display: inline !important; position: static !important; height: auto !important; background: none !important; }
 
@@ -199,7 +198,7 @@ body.light-mode .term-body { color: #334155; }
   background: rgba(59, 130, 246, 0.08);
   letter-spacing: 0.03em;
 }
-body.light-mode .chip { color: #1d4ed8; background: rgba(59, 130, 246, 0.08); }
+body.light-mode .chip { color: #1d4ed8; }
 
 /* ---------------------------------------------------------------------
    Anel de foto com gradiente girando devagar

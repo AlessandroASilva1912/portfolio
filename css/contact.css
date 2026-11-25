@@ -1,0 +1,92 @@
+.contact-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--edu-green);
+  margin: 1.5rem 0;
+}
+.contact-status::before {
+  content: "";
+  background: currentColor;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.875rem;
+  padding: 1.65rem 0;
+  border-block: 1px solid var(--line);
+}
+.channel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 0.875rem;
+  min-height: 11.6rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  text-decoration: none;
+}
+.channel-card:hover,
+.channel-card:focus-visible {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+.channel-icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: var(--hero-surface);
+  color: var(--accent);
+  border-radius: 0.5rem;
+}
+.channel-icon svg {
+  width: 1.25rem;
+}
+.channel-description {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.channel-action {
+  margin-top: auto;
+  color: var(--accent);
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+.channel-action span {
+  margin-left: 0.4rem;
+  font-size: 0.8em;
+}
+.contact-details {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1.65rem;
+}
+.contact-details :is(a, p) {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+}
+.contact-details a {
+  width: fit-content;
+  text-decoration: none;
+}
+.contact-details a:hover {
+  text-decoration: underline;
+}
+.contact-details svg {
+  width: 1rem;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+@media (max-width: 560px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

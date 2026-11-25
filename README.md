@@ -1,7 +1,7 @@
 # 💻 Portfólio — Alessandro Alves da Silva
 
 Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro,
-apresentando meus projetos de desenvolvimento web com Python/Flask e C#/.NET, além da minha experiência em suporte e sustentação de sistemas.
+com foco na minha transição para QA Júnior. Apresento minha experiência com testes, registro de bugs e retestes na TIVIT, além de projetos em Python e C# com cenários de teste propostos.
 
 ## 🔗 Acesse online
 
@@ -12,10 +12,9 @@ apresentando meus projetos de desenvolvimento web com Python/Flask e C#/.NET, al
 | Página        | Descrição                              |
 |---------------|----------------------------------------|
 | Home          | Apresentação e links de contato        |
-| Serviços      | O que ofereço como profissional        |
 | Currículo     | Experiências, formação e habilidades   |
 | Projetos      | Projetos desenvolvidos                 |
-| Contato       | Formulário e redes sociais             |
+| Contato       | Canais de contato e redes sociais             |
 
 ## Projetos em destaque
 
@@ -32,9 +31,17 @@ Clone este repositório e abra `index.html` no navegador. Para servir os arquivo
 - HTML5
 - CSS3 (responsivo, dark/light mode)
 - JavaScript (vanilla)
-- Font Awesome 6
+- Estilos em `css/portfolio.css` e interações em `js/portfolio.js`
+
+## Manutenção
+
+- **Cursos e certificados.** O catálogo único em `js/course-data.js` alimenta os indicadores e os cards. Consulte o [guia de cadastro](doc/certificados/README.md) para os campos, formatos e caminhos aceitos. Use o servidor HTTP local para testar documentos antes de enviá-los ao GitHub Pages.
+- **Traduções.** Mantenha o texto original em português no HTML ou no catálogo. Em `js/translations.js`, use como chave o texto original, com os espaços consecutivos reduzidos a um, e como valor a tradução em inglês. Para conteúdo com links, ícones ou ênfase, cada trecho de texto entre elementos tem sua própria entrada. O mesmo dicionário atende títulos, descrições, legendas e atributos de acessibilidade. Sem uma entrada, o conteúdo original continua visível.
+- **Currículo em PDF.** O mapa `resumes` de `js/i18n.js` aponta para o PDF em português. Ao receber uma versão inglesa, adicione seu caminho na chave `en` e atualize a indicação de idioma nas traduções dos dois botões de download.
+- **Abas.** Os links em `curriculo_page.html` apontam para os IDs originais. No desktop, use as setas para cima e para baixo. No menu horizontal, use esquerda e direita. Home e End selecionam a primeira e a última aba.
 
 ## 📬 Contato
 
 - LinkedIn: [linkedin.com/in/alessandro-alves-264b31196](https://www.linkedin.com/in/alessandro-alves-264b31196/)
 - GitHub: [github.com/AlessandroASilva1912](https://github.com/AlessandroASilva1912)
+
