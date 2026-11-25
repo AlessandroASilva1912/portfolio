@@ -514,7 +514,6 @@
         </a>
       <nav id="navMenu">
         <a href="index.html">HOME</a>
-        <a href="servicos_page.html">SERVIÇOS</a>
         <a href="curriculo_page.html">CURRÍCULO</a>
         <a href="#" class="active">PROJETOS</a>
         <a href="contato_page.html">CONTATO</a>
@@ -540,16 +539,54 @@
 
         <div class="carousel">
           <div class="carousel-inner" id="carouselInner">
-<div class="project-card">
-  <div class="project-info">
-    <div><h2 class="project-title">AgendaSystem</h2><span class="status-badge">PROJETO .NET</span></div>
-    <p class="project-description">Sistema de agendamento para serviços com ASP.NET Core MVC, Entity Framework Core e SQLite. Permite organizar profissionais, serviços e clientes, com acesso separado para administração e clientes.</p>
-    <p class="project-description"><strong>Regra de negócio em destaque:</strong> verifica sobreposição de horários por profissional e considera a duração do serviço e o expediente antes de aceitar um agendamento.</p>
-    <div class="tech-tags"><span class="tech-tag">C# / ASP.NET Core</span><span class="tech-tag">Entity Framework Core</span><span class="tech-tag">SQLite</span><span class="tech-tag">Identity</span></div>
-    <div class="project-buttons"><a href="https://github.com/AlessandroASilva1912/AgendaSystem" class="btn-github">GitHub</a><a href="https://github.com/AlessandroASilva1912/AgendaSystem#readme" class="btn-deploy">Como executar →</a></div>
-  </div>
-  <div class="term-window"><div class="term-titlebar"><span class="term-name">Fluxo de agendamento</span></div><div class="term-body"><ol><li>Escolher profissional, serviço e data</li><li>Consultar expediente e horários ocupados</li><li>Validar conflito no servidor</li><li>Confirmar e acompanhar o agendamento</li></ol><p>Calendário visual, permissões por perfil e relatórios com exportação.</p></div></div>
-</div>
+            <div class="project-card">
+              <div class="project-info">
+                <div>
+                  <h2 class="project-title">AgendaSystem</h2>
+                  <span class="status-badge">PROJETO DE PORTFÓLIO</span>
+                </div>
+                <p class="project-description">Sistema de agendamento para serviços com ASP.NET Core MVC, Entity Framework Core e
+                  SQLite. Permite organizar profissionais, serviços e clientes, com acesso separado para administração e clientes.
+                </p>
+                <p class="project-description"><strong>Regra de negócio em destaque:</strong> verifica sobreposição de horários por
+                  profissional e considera a duração do serviço e o expediente antes de aceitar um agendamento.</p>
+                <div class="tech-tags"><span class="tech-tag">C# / ASP.NET Core</span><span class="tech-tag">Entity Framework
+                    Core</span><span class="tech-tag">SQLite</span><span class="tech-tag">Identity</span></div>
+                <div class="project-buttons"><a href="https://github.com/AlessandroASilva1912/AgendaSystem"
+                    class="btn-github">GitHub</a><a href="https://github.com/AlessandroASilva1912/AgendaSystem#readme"
+                    class="btn-deploy">Como executar →</a></div>
+              </div>
+              <div class="project-image">
+                <div class="img-carousel">
+                  <div class="img-track">
+                    <img
+                      src="img/Projetos/Agenda/Tela Login.jpg"
+                      alt="AgendaSystem - Tela de Login"
+                    /><img
+                      src="img/Projetos/Agenda/Calendário de agendamentos.jpg"
+                      alt="AgendaSystem - Calendário de agendamentos"
+                    /><img
+                      src="img/Projetos/Agenda/Painel administrativo.jpg"
+                      alt="AgendaSystem - Painel administrativo"
+                    /><img
+                      src="img/Projetos/Agenda/Relatórios e faturamento.jpg"
+                      alt="AgendaSystem - Relatórios e faturamento"
+                    /><img
+                      src="img/Projetos/Agenda/Novo agendamento (visão do cliente).jpg"
+                      alt="AgendaSystem - Novo agendamento (visão do cliente)"
+                    />
+                  </div>
+                  <button class="img-prev" onclick="imgMove(this, -1)">
+                    &#8249;
+                  </button>
+                  <button class="img-next" onclick="imgMove(this, 1)">
+                    &#8250;
+                  </button>
+                  <div class="img-dots"></div>
+                </div>
+              </div>
+            </div>
+
             <div class="project-card">
               <div class="project-info">
                 <div>
@@ -580,13 +617,8 @@
                 <div class="img-carousel">
                   <div class="img-track">
                     <img
-                      src="img/os_manager.png"
+                      src="img/Projetos/OS/Tela Inicial.jpeg"
                       alt="OS Manager - Dashboard"
-                    />
-                    <img src="img/os_manager1.png" alt="OS Manager - Ordens" />
-                    <img
-                      src="img/os_manager2.png"
-                      alt="OS Manager - Relatórios"
                     />
                   </div>
                   <button class="img-prev" onclick="imgMove(this, -1)">
@@ -632,11 +664,11 @@
                 <div class="img-carousel">
                   <div class="img-track">
                     <img
-                      src="img/segure1.png"
+                      src="img/Projetos/SecureAuth/Tela Login.jpeg"
                       alt="SecureAuth - Tela de Login"
                     />
                     <img
-                      src="img/segure2.png"
+                      src="img/Projetos/SecureAuth/Tela inicial.jpeg"
                       alt="SecureAuth - Verificação MFA"
                     />
                     
@@ -685,22 +717,16 @@
                 <div class="img-carousel">
                   <div class="img-track">
                     <img
-                      src="img/Estoque/1.jpeg"
-                      alt="Estoque"
+                      src="img/Projetos/Estoque/Tela Login.jpeg"
+                      alt="Estoque - Tela de Login"
                     />
                     <img
-                      src="img/Estoque/2.jpeg"
-                      alt="Estoque"
+                      src="img/Projetos/Estoque/Tela Cadastro.jpeg"
+                      alt="Estoque - Tela de Cadastro"
                     />
                     <img
-                      src="img/Estoque/3.jpeg"
-                      alt="Estoque"
-                    /><img
-                      src="img/Estoque/4.jpeg"
-                      alt="Estoque"
-                    /><img
-                      src="img/Estoque/5.jpeg"
-                      alt="Estoque"
+                      src="img/Projetos/Estoque/Dashboard.jpeg"
+                      alt="Estoque - Dashboard"
                     />
                   </div>
                   <button class="img-prev" onclick="imgMove(this, -1)">
