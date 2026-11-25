@@ -1,4 +1,27 @@
 const themeButton = document.querySelector(".theme");
+const header = document.querySelector("body > header");
+const mainNav = header.querySelector("nav");
+const mobileHeader = matchMedia("(max-width: 760px)");
+
+function measureHeader() {
+  const bounds = header.getBoundingClientRect();
+  const offset = mobileHeader.matches ? mainNav.getBoundingClientRect().top - bounds.top : 0;
+  const style = document.documentElement.style;
+  style.setProperty("--header-top", -offset + "px");
+  style.setProperty("--nav-height", (bounds.height - offset) + "px");
+}
+measureHeader();
+if ("ResizeObserver" in window) {
+  const observer = new ResizeObserver(measureHeader);
+  observer.observe(header);
+  observer.observe(mainNav);
+}
+window.addEventListener("resize", measureHeader);
+header.addEventListener("focusin", event => {
+  if (mobileHeader.matches && !mainNav.contains(event.target) && event.target.getBoundingClientRect().top < 0) {
+    window.scrollTo(0, 0);
+  }
+});
 
 function setTheme(dark) {
   document.documentElement.classList.toggle("dark", dark);
@@ -97,18 +120,57 @@ if (tablist) {
   selectFromUrl();
 }
 
+const viewer = document.querySelector("#project-viewer");
 for (const gallery of document.querySelectorAll(".gallery")) {
   const slides = [...gallery.querySelectorAll("figure")];
-  if (slides.length < 2) continue;
   let current = 0;
   function showSlide(step) {
     current = (current + step + slides.length) % slides.length;
     slides.forEach((slide, index) => {
       slide.hidden = index !== current;
     });
-    gallery.querySelector("output").textContent =
-      String(current + 1) + " / " + slides.length;
+    const count = gallery.querySelector("output");
+    if (count) count.textContent = String(current + 1) + " / " + slides.length;
   }
+  slides.forEach((slide, index) => {
+    const link = slide.querySelector("a");
+    if (!viewer || !viewer.showModal || !link) return;
+    link.setAttribute("aria-haspopup", "dialog");
+    link.addEventListener("click", event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      current = index;
+      const media = viewer.querySelector("img");
+      const caption = viewer.querySelector("figcaption");
+      const controls = viewer.querySelector(".viewer-controls");
+      controls.hidden = slides.length < 2;
+      function render(step) {
+        showSlide(step);
+        const active = slides[current];
+        media.src = active.querySelector("a").href;
+        media.alt = active.querySelector("img").alt;
+        caption.textContent = active.querySelector("figcaption").textContent.trim();
+        viewer.querySelector("output").textContent = (current + 1) + " / " + slides.length;
+      }
+      controls.onclick = event => {
+        const button = event.target.closest("[data-step]");
+        if (button) render(Number(button.dataset.step));
+      };
+      viewer.onkeydown = event => {
+        if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+          event.preventDefault();
+          render(event.key === "ArrowLeft" ? -1 : 1);
+        }
+      };
+      viewer.onclose = () => {
+        slides[current].querySelector("a").focus({preventScroll: true});
+        media.removeAttribute("src");
+      };
+      render(0);
+      viewer.showModal();
+    });
+  });
+  if (slides.length < 2) continue;
   for (const button of gallery.querySelectorAll("[data-step]")) {
     button.addEventListener("click", () =>
       showSlide(Number(button.dataset.step)),
@@ -116,6 +178,36 @@ for (const gallery of document.querySelectorAll(".gallery")) {
   }
   gallery.classList.add("ready");
   showSlide(0);
+}
+if (viewer) {
+  viewer.querySelector(".viewer-close").onclick = () => viewer.close();
+  viewer.addEventListener("click", event => {
+    if (event.target === viewer) viewer.close();
+  });
+}
+
+const copyEmail = document.querySelector("#copy-email");
+if (copyEmail) {
+  const address = document.querySelector('a[href^="mailto:"]').href.slice(7);
+  const feedback = document.querySelector("#copy-feedback");
+  const manual = document.querySelector("#manual-email");
+  copyEmail.hidden = false;
+  copyEmail.addEventListener("click", async () => {
+    let message;
+    try {
+      await navigator.clipboard.writeText(address);
+      manual.hidden = true;
+      message = "E-mail copiado";
+    } catch {
+      manual.value = address;
+      manual.hidden = false;
+      manual.focus();
+      manual.select();
+      message = "Copie o endereço selecionado.";
+    }
+    feedback.textContent = message;
+    window.portfolioI18n.apply(feedback);
+  });
 }
 
 if (

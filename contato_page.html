@@ -22,7 +22,6 @@
     <link href="css/portfolio.css" rel="stylesheet" />
     <script defer src="js/translations.js"></script>
     <link href="css/contact.css" rel="stylesheet" />
-    <script defer src="js/contact-translations.js"></script>
     <script defer src="js/i18n.js"></script>
     <script defer="" src="js/portfolio.js">
     </script>
@@ -81,7 +80,7 @@
             </p>
             <p class="contact-status">Aberto a oportunidades profissionais</p>
             <div class="contact-grid">
-                <a class="channel-card" href="mailto:alessandro.alves21017@outlook.com">
+                <div class="channel-card email-card">
                     <span class="channel-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="4" width="20" height="16" rx="3" />
@@ -89,8 +88,14 @@
                         </svg></span>
                     <strong>E-mail</strong>
                     <span class="channel-description">Contato profissional direto</span>
-                    <span class="channel-action">Enviar e-mail <span aria-hidden="true">↗</span></span>
-                </a>
+                    <div class="email-actions">
+                        <a class="channel-action" href="mailto:alessandro.alves21017@outlook.com">Enviar e-mail <span
+                                aria-hidden="true">↗</span></a>
+                        <button type="button" id="copy-email" hidden>Copiar e-mail</button>
+                    </div>
+                    <span id="copy-feedback" role="status"></span>
+                    <input id="manual-email" aria-label="E-mail" readonly hidden>
+                </div>
                 <a class="channel-card" href="https://www.linkedin.com/in/alessandro-alves-264b31196/">
                     <span class="channel-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">

@@ -426,6 +426,20 @@
             </article>
         </div>
     </main>
+    <dialog id="project-viewer" aria-labelledby="viewer-caption">
+        <div class="viewer-body">
+            <button class="viewer-close" type="button" autofocus>Fechar</button>
+            <figure>
+                <img alt="">
+                <figcaption id="viewer-caption" aria-live="polite"></figcaption>
+            </figure>
+            <div class="viewer-controls">
+                <button type="button" data-step="-1">Anterior</button>
+                <output></output>
+                <button type="button" data-step="1">Próxima</button>
+            </div>
+        </div>
+    </dialog>
     <footer>
         <div class="wrap foot">
             <span>

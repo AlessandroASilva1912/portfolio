@@ -151,7 +151,13 @@ footer {
   background: #172336;
 }
 
-header {
+html {
+  scroll-padding-top: calc(var(--nav-height, 75px) + 0.75rem);
+}
+body > header {
+  position: sticky;
+  top: var(--header-top, 0px);
+  z-index: 4;
   border-bottom: 1px solid #465061;
 }
 
@@ -485,6 +491,49 @@ header {
   border-radius: 0.25rem;
 }
 
+#project-viewer {
+  width: min(76rem, 96vw);
+  max-height: 94dvh;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--card);
+  color: var(--ink);
+}
+#project-viewer::backdrop {
+  background: rgb(12 19 33 / 82%);
+}
+body:has(#project-viewer[open]) {
+  overflow: hidden;
+}
+.viewer-body {
+  display: grid;
+  gap: 0.65rem;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+}
+.viewer-body button {
+  padding: 0.4rem 0.85rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+}
+.viewer-close {
+  justify-self: end;
+}
+.viewer-body img {
+  width: 100%;
+  height: min(65dvh, 52rem);
+  object-fit: contain;
+}
+.viewer-body figcaption {
+  margin-top: 0.5rem;
+}
+.viewer-controls:not([hidden]) {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
 .gallery {
   padding: 1rem;
   background: var(--card);
@@ -528,7 +577,7 @@ header {
 
 .cv > nav {
   position: sticky;
-  top: 1rem;
+  top: calc(var(--nav-height, 75px) + 1rem);
   display: grid;
   gap: 0.25rem;
   padding: 0.45rem;

@@ -1,5 +1,10 @@
 // Portuguese source strings are normalized to a single space before lookup.
 window.portfolioTranslations = {
+  "Copiar e-mail": "Copy email address",
+  "E-mail copiado": "Email address copied",
+  "Copie o endereço selecionado.": "Copy the selected address.",
+  "Anterior": "Previous",
+  "Próxima": "Next",
   Idioma: "Language",
   "Cursos e certificações": "Courses & Certifications",
   "Baixar currículo em PDF (PT-BR)": "Download CV (PDF, Brazilian Portuguese)",
